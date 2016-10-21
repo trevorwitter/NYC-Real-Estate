@@ -121,7 +121,7 @@ frame = frame.T
 frame = frame.rename(columns=lambda x: x.strip()) #strips white space from column names
 
 #CustomJS
-source = ColumnDataSource(data={'ALPHABET CITY':frame['ALPHABET CITY'], 'CHELSEA':frame['CHELSEA'], 'CHINATOWN':frame['CHINATOWN'], 'CIVIC CENTER':frame['CIVIC CENTER'], 'CLINTON':frame['CLINTON']})
+source = ColumnDataSource(data={'x':frame.index, 'y':frame['ALPHABET CITY'], 'ALPHABET CITY':frame['ALPHABET CITY'], 'CHELSEA':frame['CHELSEA'], 'CHINATOWN':frame['CHINATOWN'], 'CIVIC CENTER':frame['CIVIC CENTER'], 'CLINTON':frame['CLINTON'], 'EAST VILLAGE':frame['EAST VILLAGE'], 'FASHION':frame['FASHION'], 'FINANCIAL':frame['FINANCIAL'], 'FLATIRON':frame['FLATIRON'], 'GRAMERCY':frame['GRAMERCY'], 'GREENWICH VILLAGE-CENTRAL':frame['GREENWICH VILLAGE-CENTRAL'], 'GREENWICH VILLAGE-WEST':frame['GREENWICH VILLAGE-WEST'], 'HARLEM-CENTRAL':frame['HARLEM-CENTRAL'], 'HARLEM-EAST':frame['HARLEM-EAST'], 'HARLEM-UPPER':frame['HARLEM-UPPER'], 'HARLEM-WEST':frame['HARLEM-WEST'], 'INWOOD':frame['INWOOD'], 'JAVITS CENTER':frame['JAVITS CENTER'], 'KIPS BAY':frame['KIPS BAY'], 'LITTLE ITALY':frame['LITTLE ITALY'], 'LOWER EAST SIDE':frame['LOWER EAST SIDE'], 'MANHATTAN VALLEY':frame['MANHATTAN VALLEY'], 'MIDTOWN CBD':frame['MIDTOWN CBD'], 'MIDTOWN EAST':frame['MIDTOWN EAST'], 'MIDTOWN WEST':frame['MIDTOWN WEST'], 'MORNINGSIDE HEIGHTS':frame['MORNINGSIDE HEIGHTS'], 'MURRAY HILL':frame['MURRAY HILL'], 'SOHO':frame['SOHO'], 'SOUTHBRIDGE':frame['SOUTHBRIDGE'], 'TRIBECA':frame['TRIBECA'], 'UPPER BAY':frame['UPPER BAY'], 'UPPER EAST SIDE (59-79)':frame['UPPER EAST SIDE (59-79)'], 'UPPER EAST SIDE (79-96)':frame['UPPER EAST SIDE (79-96)'], 'UPPER EAST SIDE (96-110)':frame['UPPER EAST SIDE (96-110)'], 'UPPER WEST SIDE (59-79)':frame['UPPER WEST SIDE (59-79)'], 'UPPER WEST SIDE (79-96)':frame['UPPER WEST SIDE (79-96)'], 'UPPER WEST SIDE (96-116)':frame['UPPER WEST SIDE (96-116)'], 'WASHINGTON HEIGHTS LOWER':frame['WASHINGTON HEIGHTS LOWER'], 'WASHINGTON HEIGHTS UPPER':frame['WASHINGTON HEIGHTS UPPER']})
 
 
 
@@ -142,11 +142,10 @@ callbacky = CustomJS(args=dict(source=source), code=code.format(var="y"))
 
 plot = Figure(title=None)
 
-plot.line(x=frame.index, y="CHELSEA", line_width=2, source=source)
+plot.line(x="x", y="y", line_width=2, source=source)
 
 #list boxes
-yaxis_select = Select(title="Select Neighborhood:", value="CHELSEA", options=['ALPHABET CITY', 'CHELSEA', 'CHINATOWN', 'CIVIC CENTER', 'CLINTON'], callback=callbacky)
-
+yaxis_select = Select(title="Select Neighborhood:", value="CHELSEA", options=['ALPHABET CITY', 'CHELSEA', 'CHINATOWN', 'CIVIC CENTER', 'CLINTON', 'EAST VILLAGE', 'FASHION', 'FINANCIAL', 'FLATIRON', 'GRAMERCY', 'GREENWICH VILLAGE-CENTRAL', 'GREENWICH VILLAGE-WEST', 'HARLEM-CENTRAL', 'HARLEM-EAST', 'HARLEM-UPPER', 'HARLEM-WEST', 'INWOOD', 'JAVITS CENTER', 'KIPS BAY', 'LITTLE ITALY', 'LOWER EAST SIDE', 'MANHATTAN VALLEY', 'MIDTOWN CBD', 'MIDTOWN EAST', 'MIDTOWN WEST', 'MORNINGSIDE HEIGHTS', 'MURRAY HILL', 'SOHO', 'SOUTHBRIDGE', 'TRIBECA', 'UPPER BAY', 'UPPER EAST SIDE (59-79)', 'UPPER EAST SIDE (79-96)', 'UPPER EAST SIDE (96-110)', 'UPPER WEST SIDE (59-79)', 'UPPER WEST SIDE (79-96)', 'UPPER WEST SIDE (96-116)', 'WASHINGTON HEIGHTS LOWER', 'WASHINGTON HEIGHTS UPPER'], callback=callbacky)
 controls = VBox(yaxis_select)
 
 layout = HBox(plot, controls, width=800)
