@@ -1,6 +1,16 @@
 # NYC-Real-Estate-
 Analysis of 2003-2015 NYC real estate prices
 
-Data taken from NYC.gov
+Data located on NYC.gov
 
-![alt tag](https://github.com/trevorwitter/NYC-Real-Estate-/blob/master/Chelsea_image.tiff)
+
+Annual borough sales data are combined into pandas DataFrame and grouped by neighborhood. 
+
+![alt tag](https://github.com/trevorwitter/NYC-Real-Estate-/blob/master/greenwich_village_graph.tiff)
+
+
+
+Additional higher level correlations, such as total number of sales, condos vs co-ops, property type, buiding codes and tax codes will be added 
+![alt tag](https://github.com/trevorwitter/NYC-Real-Estate-/blob/master/Annual_Sales_graph.tiff)
+
+Current analysis only focuses on Manhattan; Brooklyn will be added next 
