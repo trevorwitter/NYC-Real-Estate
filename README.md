@@ -11,7 +11,7 @@ Annual borough sales data are combined into pandas DataFrame and grouped by neig
 
 
 
-Additional higher-level correlations, such as total number of sales, condos vs co-ops, property type, buiding codes and tax codes will be added 
+Additional variables, such as total number of sales, condos vs co-ops, property type, buiding codes and tax codes will be incorporated into analysis. 
 ![alt tag](https://github.com/trevorwitter/NYC-Real-Estate-/blob/master/Annual_Sales_graph.tiff)
 
-Current analysis only focuses on Manhattan; finished project will include all 5 boroughs. Once complete, will be able to select trend data broken down by property type and neighborhood. Plan to also add analysis incorporating property tax data. 
+Current analysis only focuses on Manhattan; finished project will include all 5 boroughs. Once complete, the user will be able to select trend data broken down by property type and neighborhood. Plan to also add analysis incorporating property tax data. 
