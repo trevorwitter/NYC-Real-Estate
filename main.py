@@ -124,10 +124,11 @@ frame['MANHATTAN'] = manhattan
 frame['ANNUAL SALES'] = annual_sales
 print frame
 
+# Year over Year percent change
+frameYoY = ((frame-frame.shift(1))/frame.shift(1))*100
+
 #CustomJS
 source = ColumnDataSource(data={'x':frame.index, 'y':frame['ALPHABET CITY'], 'ALPHABET CITY':frame['ALPHABET CITY'], 'CHELSEA':frame['CHELSEA'], 'CHINATOWN':frame['CHINATOWN'], 'CIVIC CENTER':frame['CIVIC CENTER'], 'CLINTON':frame['CLINTON'], 'EAST VILLAGE':frame['EAST VILLAGE'], 'FASHION':frame['FASHION'], 'FINANCIAL':frame['FINANCIAL'], 'FLATIRON':frame['FLATIRON'], 'GRAMERCY':frame['GRAMERCY'], 'GREENWICH VILLAGE-CENTRAL':frame['GREENWICH VILLAGE-CENTRAL'], 'GREENWICH VILLAGE-WEST':frame['GREENWICH VILLAGE-WEST'], 'HARLEM-CENTRAL':frame['HARLEM-CENTRAL'], 'HARLEM-EAST':frame['HARLEM-EAST'], 'HARLEM-UPPER':frame['HARLEM-UPPER'], 'HARLEM-WEST':frame['HARLEM-WEST'], 'INWOOD':frame['INWOOD'], 'JAVITS CENTER':frame['JAVITS CENTER'], 'KIPS BAY':frame['KIPS BAY'], 'LITTLE ITALY':frame['LITTLE ITALY'], 'LOWER EAST SIDE':frame['LOWER EAST SIDE'], 'MANHATTAN VALLEY':frame['MANHATTAN VALLEY'], 'MIDTOWN CBD':frame['MIDTOWN CBD'], 'MIDTOWN EAST':frame['MIDTOWN EAST'], 'MIDTOWN WEST':frame['MIDTOWN WEST'], 'MORNINGSIDE HEIGHTS':frame['MORNINGSIDE HEIGHTS'], 'MURRAY HILL':frame['MURRAY HILL'], 'SOHO':frame['SOHO'], 'SOUTHBRIDGE':frame['SOUTHBRIDGE'], 'TRIBECA':frame['TRIBECA'], 'UPPER BAY':frame['UPPER BAY'], 'UPPER EAST SIDE (59-79)':frame['UPPER EAST SIDE (59-79)'], 'UPPER EAST SIDE (79-96)':frame['UPPER EAST SIDE (79-96)'], 'UPPER EAST SIDE (96-110)':frame['UPPER EAST SIDE (96-110)'], 'UPPER WEST SIDE (59-79)':frame['UPPER WEST SIDE (59-79)'], 'UPPER WEST SIDE (79-96)':frame['UPPER WEST SIDE (79-96)'], 'UPPER WEST SIDE (96-116)':frame['UPPER WEST SIDE (96-116)'], 'WASHINGTON HEIGHTS LOWER':frame['WASHINGTON HEIGHTS LOWER'], 'WASHINGTON HEIGHTS UPPER':frame['WASHINGTON HEIGHTS UPPER']})
-
-
 
 code="""
         var data = source.get('data');
@@ -142,26 +143,51 @@ code="""
      """
 
 callbacky = CustomJS(args=dict(source=source), code=code.format(var="y"))
+callbackz = CustomJS(args=dict(source=source2), code=code.format(var="y")) #make callbackz run off of callbacky to have both graphs run off of same Select widget?
 
-plot = Figure(title=None)
+TOOLS = [HoverTool()]
 
-plot.line(x="x", y="y", line_width=2, legend="Greenwich Village-West", source=source)
+plot = Figure(title='Mean Price')
+
+plot.line(x="x", y="y", line_width=2, legend="Selected Neighborhood", source=source)
 plot.line(x=frame.index, y=frame['MANHATTAN'], legend="All Manhattan", line_alpha=0.5, line_width=1, line_color='red')
 plot.legend.location = "top_left"
 plot.xaxis.axis_label = "Year"
 plot.yaxis.axis_label = "Mean Price"
-
+plot.xgrid.grid_line_color = None
+plot.ygrid.grid_line_color = None
+plot.toolbar.logo = None
+#plot.toolbar_location = None
 
 plot2 = Bar(frame['ANNUAL SALES'], plot_height=400, legend=None)
 plot2.xaxis.axis_label = "Year"
 plot2.yaxis.axis_label = "Number of Sales"
+plot2.toolbar.logo = None
+#plot2.toolbar_location = None
+
+plot3 = Figure(title='Year over Year Percent Change')
+plot3.line(x=frameYoY.index, y=frameYoY['MANHATTAN'], line_alpha=0.5, line_width=1, line_color='red')
+plot3.line(x="x", y="y", line_width=2, source=source2)
+plot3.xaxis.axis_label = "Year"
+plot3.yaxis.axis_label = "Percent Change"
+plot3.xgrid.grid_line_color = None
+#plot3.ygrid.grid_line_color = None
+plot3.ygrid.grid_line_dash = [6, 4]
+plot3.grid.bounds = (-0.0002,0.0002)
+plot3.toolbar.logo = None
+#plot3.toolbar_location = None
+
+p = Div(text = """Analysis of <b>315,720</b> listed Manhattan real estate sales from 2003-2015. Data from <a href="https://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page">NYC.gov</a>""")
 
 
 #list boxes
 yaxis_select = Select(title="Select Neighborhood:", value="CHELSEA", options=['ALPHABET CITY', 'CHELSEA', 'CHINATOWN', 'CIVIC CENTER', 'CLINTON', 'EAST VILLAGE', 'FASHION', 'FINANCIAL', 'FLATIRON', 'GRAMERCY', 'GREENWICH VILLAGE-CENTRAL', 'GREENWICH VILLAGE-WEST', 'HARLEM-CENTRAL', 'HARLEM-EAST', 'HARLEM-UPPER', 'HARLEM-WEST', 'INWOOD', 'JAVITS CENTER', 'KIPS BAY', 'LITTLE ITALY', 'LOWER EAST SIDE', 'MANHATTAN VALLEY', 'MIDTOWN CBD', 'MIDTOWN EAST', 'MIDTOWN WEST', 'MORNINGSIDE HEIGHTS', 'MURRAY HILL', 'SOHO', 'SOUTHBRIDGE', 'TRIBECA', 'UPPER BAY', 'UPPER EAST SIDE (59-79)', 'UPPER EAST SIDE (79-96)', 'UPPER EAST SIDE (96-110)', 'UPPER WEST SIDE (59-79)', 'UPPER WEST SIDE (79-96)', 'UPPER WEST SIDE (96-116)', 'WASHINGTON HEIGHTS LOWER', 'WASHINGTON HEIGHTS UPPER'], callback=callbacky)
 
-controls = VBox(yaxis_select)
+select2 = Select(title="Select Neighborhood:", value="CHELSEA", options=['ALPHABET CITY', 'CHELSEA', 'CHINATOWN', 'CIVIC CENTER', 'CLINTON', 'EAST VILLAGE', 'FASHION', 'FINANCIAL', 'FLATIRON', 'GRAMERCY', 'GREENWICH VILLAGE-CENTRAL', 'GREENWICH VILLAGE-WEST', 'HARLEM-CENTRAL', 'HARLEM-EAST', 'HARLEM-UPPER', 'HARLEM-WEST', 'INWOOD', 'JAVITS CENTER', 'KIPS BAY', 'LITTLE ITALY', 'LOWER EAST SIDE', 'MANHATTAN VALLEY', 'MIDTOWN CBD', 'MIDTOWN EAST', 'MIDTOWN WEST', 'MORNINGSIDE HEIGHTS', 'MURRAY HILL', 'SOHO', 'SOUTHBRIDGE', 'TRIBECA', 'UPPER BAY', 'UPPER EAST SIDE (59-79)', 'UPPER EAST SIDE (79-96)', 'UPPER EAST SIDE (96-110)', 'UPPER WEST SIDE (59-79)', 'UPPER WEST SIDE (79-96)', 'UPPER WEST SIDE (96-116)', 'WASHINGTON HEIGHTS LOWER', 'WASHINGTON HEIGHTS UPPER'], callback=callbackz)
+control = column(yaxis_select, select2, p, sizing_mode="stretch_both")
 
-layout = HBox(plot, controls, plot2, width=800)
+plots = layout([[plot, plot3], [plot2, control]], sizing_mode="stretch_both")
 
-bokeh.io.show(layout)
+
+bokeh.io.show(plots)
+
