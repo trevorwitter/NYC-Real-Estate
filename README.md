@@ -1,6 +1,8 @@
 # NYC-Real-Estate-
 Analysis of 2003-2015 NYC real estate prices
 
+running on trevorwitter.herokuapp.com
+
 Data taken from NYC.gov:
 http://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page
 
