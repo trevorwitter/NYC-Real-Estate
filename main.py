@@ -46,61 +46,60 @@ def percent_change(frame):
     
 
 
-df2003= pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/sales_manhattan_03.xls', header=3)
+df2003= pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/sales_manhattan_03.xls', header=3)
 MH2003 = DataFrame(df2003)
 
 
-df2004 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/sales_manhattan_04.xls', header=3)
+df2004 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/sales_manhattan_04.xls', header=3)
 MH2004 = DataFrame(df2004)
 
 
-df2005 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/sales_manhattan_05.xls', header=3)
+df2005 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/sales_manhattan_05.xls', header=3)
 MH2005 = DataFrame(df2005)
 
-    
-df2006 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/sales_manhattan_06.xls', header=3)
+
+df2006 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/sales_manhattan_06.xls', header=3)
 MH2006 = DataFrame(df2006)
 
 
-df2007 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/sales_2007_manhattan.xls', header=3)
+df2007 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/excel/rolling_sales/sales_2007_manhattan.xls', header=3)
 MH2007 = DataFrame(df2007)
 
 
-df2008 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/sales_2008_manhattan.xls', header=3)
+df2008 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/pdf/09pdf/rolling_sales/sales_2008_manhattan.xls', header=3)
 MH2008 = DataFrame(df2008)
 
 
-df2009 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/2009_manhattan.xls', header=3)
+df2009 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/annualized-sales/2009_manhattan.xls', header=3)
 MH2009 = DataFrame(df2009)
 
 
-df2010 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/2010_manhattan.xls', header=3)
+df2010 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/annualized-sales/2010/2010_manhattan.xls', header=3)
 MH2010 = DataFrame(df2010)
 
 
-df2011 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/2011_manhattan.xls', header=4)
-MH2011 = DataFrame(df2011) 
+df2011 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/annualized-sales/2011/2011_manhattan.xls', header=4)
+MH2011 = DataFrame(df2011)
 
 
-df2012 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/2012_manhattan.xls', header=4)
+df2012 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/annualized-sales/2012/2012_manhattan.xls', header=4)
 MH2012 = DataFrame(df2012) #headers end \n
 MH2012.columns = ['BOROUGH', 'NEIGHBORHOOD', 'BUILDING CLASS CATEGORY', 'TAX CLASS AT PRESENT', 'BLOCK', 'LOT', 'EASE-MENT', 'BUILDING CLASS AT PRESENT', 'ADDRESS', 'APARTMENT NUMBER', 'ZIP CODE', 'RESIDENTIAL UNITS', 'COMMERCIAL UNITS', 'TOTAL UNITS', 'LAND SQUARE FEET', 'GROSS SQUARE FEET', 'YEAR BUILT', 'TAX CLASS AT TIME OF SALE', 'BUILDING CLASS AT TIME OF SALE', 'SALE PRICE', 'SALE DATE']
 
 
-df2013 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/2013_manhattan.xls', header=4)
+df2013 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/annualized-sales/2013/2013_manhattan.xls', header=4)
 MH2013 = DataFrame(df2013) #headers end \n
 MH2013.columns = ['BOROUGH', 'NEIGHBORHOOD', 'BUILDING CLASS CATEGORY', 'TAX CLASS AT PRESENT', 'BLOCK', 'LOT', 'EASE-MENT', 'BUILDING CLASS AT PRESENT', 'ADDRESS', 'APARTMENT NUMBER', 'ZIP CODE', 'RESIDENTIAL UNITS', 'COMMERCIAL UNITS', 'TOTAL UNITS', 'LAND SQUARE FEET', 'GROSS SQUARE FEET', 'YEAR BUILT', 'TAX CLASS AT TIME OF SALE', 'BUILDING CLASS AT TIME OF SALE', 'SALE PRICE', 'SALE DATE']
 
 
-df2014 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/2014_manhattan.xls', header=4)
+df2014 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/annualized-sales/2014/2014_manhattan.xls', header=4)
 MH2014 = DataFrame(df2014) #headers end \n
 MH2014.columns = ['BOROUGH', 'NEIGHBORHOOD', 'BUILDING CLASS CATEGORY', 'TAX CLASS AT PRESENT', 'BLOCK', 'LOT', 'EASE-MENT', 'BUILDING CLASS AT PRESENT', 'ADDRESS', 'APARTMENT NUMBER', 'ZIP CODE', 'RESIDENTIAL UNITS', 'COMMERCIAL UNITS', 'TOTAL UNITS', 'LAND SQUARE FEET', 'GROSS SQUARE FEET', 'YEAR BUILT', 'TAX CLASS AT TIME OF SALE', 'BUILDING CLASS AT TIME OF SALE', 'SALE PRICE', 'SALE DATE']
 
 
-df2015 = pd.read_excel('/Users/twitter/Desktop/Python projects/Sample Data/NYC_Real_Estate/Manhattan_Sales_Prices/2015_manhattan.xls', header=4)
+df2015 = pd.read_excel('http://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/annualized-sales/2015/2015_manhattan.xls', header=4)
 MH2015 = DataFrame(df2015) #headers end \n
 MH2015.columns = ['BOROUGH', 'NEIGHBORHOOD', 'BUILDING CLASS CATEGORY', 'TAX CLASS AT PRESENT', 'BLOCK', 'LOT', 'EASE-MENT', 'BUILDING CLASS AT PRESENT', 'ADDRESS', 'APARTMENT NUMBER', 'ZIP CODE', 'RESIDENTIAL UNITS', 'COMMERCIAL UNITS', 'TOTAL UNITS', 'LAND SQUARE FEET', 'GROSS SQUARE FEET', 'YEAR BUILT', 'TAX CLASS AT TIME OF SALE', 'BUILDING CLASS AT TIME OF SALE', 'SALE PRICE', 'SALE DATE']
-
 
 
 total_sales = nsales(MH2003) + nsales(MH2004) + nsales(MH2005) + nsales(MH2006) + nsales(MH2007) + nsales(MH2008) + nsales(MH2009) + nsales(MH2010) + nsales(MH2011) + nsales(MH2012) + nsales(MH2013) + nsales(MH2014) + nsales(MH2015)
