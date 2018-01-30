@@ -3,8 +3,7 @@ Analysis of 2003-2015 NYC real estate prices
 
 running on http://trevorwitter.herokuapp.com
 
-Data taken from NYC.gov:
-http://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page
+Data from [NYC.gov](http://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page)
 
 
 Annual borough sales data are combined into pandas DataFrame and grouped by neighborhood. Interactive Bokeh plots allow user to select neighborhood to compare to overall Manhattan average. 
