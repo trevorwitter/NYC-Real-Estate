@@ -1,9 +1,9 @@
 # NYC-Real-Estate-
 Analysis of 2003-2015 NYC real estate prices
 
-running on http://trevorwitter.herokuapp.com
+Web application running [here](http://trevorwitter.herokuapp.com/realestate)
 
-Data from [NYC.gov](http://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page)
+Data obtained from [NYC.gov](http://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page)
 
 
 Annual borough sales data are combined into pandas DataFrame and grouped by neighborhood. Interactive Bokeh plots allow user to select neighborhood to compare to overall Manhattan average. 
@@ -15,4 +15,6 @@ Annual borough sales data are combined into pandas DataFrame and grouped by neig
 Additional variables, such as total number of sales, condos vs co-ops, property type, buiding codes and tax codes will be incorporated into analysis. 
 ![alt tag](https://github.com/trevorwitter/NYC-Real-Estate-/blob/master/Annual_Sales_graph.tiff)
 
-Current analysis only focuses on Manhattan; finished project will include all 5 boroughs. Once complete, the user will be able to select trend data broken down by property type and neighborhood. Plan to also add analysis incorporating property tax data. 
+### Next Steps
+The current analysis only focuses on Manhattan; I would like to update to include all 5 boroughs. I would also like to further group sales by property type and add additional statistical measures. I developed this project primarily to get a feel for [flask](http://flask.pocoo.org) and creating interactive Bokeh plots with javascript callbacks. 
+
