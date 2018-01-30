@@ -16,5 +16,5 @@ Additional variables, such as total number of sales, condos vs co-ops, property 
 ![alt tag](https://github.com/trevorwitter/NYC-Real-Estate-/blob/master/Annual_Sales_graph.tiff)
 
 ### Next Steps
-The current analysis only focuses on Manhattan; I would like to update to include all 5 boroughs. I would also like to further group sales by property type and add additional statistical measures. I developed this project primarily to get a feel for [flask](http://flask.pocoo.org) and creating interactive Bokeh plots with javascript callbacks. 
+The current analysis only focuses on Manhattan; I would like to update to include all 5 boroughs. I would also like to further group sales by property type and add additional statistical measures. I developed this project primarily to get a feel for [flask](http://flask.pocoo.org) and create interactive Bokeh plots with javascript callbacks. 
 
