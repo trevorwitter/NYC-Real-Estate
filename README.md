@@ -1,9 +1,9 @@
 # NYC Real Estate Prices
 Analysis of NYC real estate prices by neighborhood based on all sales between 2003 and 2015.
 
-Web application running [here](http://trevorwitter.herokuapp.com/realestate)
+Web application running [here](http://trevorwitter.herokuapp.com/realestate).
 
-Data obtained from [NYC.gov](http://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page)
+Sales data obtained from [NYC.gov](http://www1.nyc.gov/site/finance/taxes/property-annualized-sales-update.page).
 
 
 Annual borough sales data are combined into pandas DataFrame and grouped by neighborhood. Interactive Bokeh plots allow user to select neighborhood to compare to overall Manhattan average. 
