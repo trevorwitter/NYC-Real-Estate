@@ -1,4 +1,4 @@
-# NYC-Real-Estate-
+# NYC Real Estate Prices
 Analysis of 2003-2015 NYC real estate prices
 
 Web application running [here](http://trevorwitter.herokuapp.com/realestate)
