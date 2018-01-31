@@ -1,5 +1,5 @@
 # NYC Real Estate Prices
-Analysis of 2003-2015 NYC real estate prices
+Analysis of NYC real estate prices by neighborhood based on all sales between 2003 and 2015.
 
 Web application running [here](http://trevorwitter.herokuapp.com/realestate)
 
